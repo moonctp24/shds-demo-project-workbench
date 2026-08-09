@@ -1,0 +1,29 @@
+# --- demo-back (Java / Maven) ---
+demo-back/target/
+*.class
+*.log
+.mvn/wrapper/maven-wrapper.jar
+
+# --- demo-front (Next.js) ---
+demo-front/node_modules/
+demo-front/.next/
+demo-front/out/
+demo-front/.env*
+demo-front/*.tsbuildinfo
+demo-front/next-env.d.ts
+
+# --- locally downloaded build tooling (Maven) ---
+.tools/
+
+# --- Claude Code local settings ---
+.claude/settings.local.json
+
+# --- IDE ---
+.idea/
+*.iml
+.vscode/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini

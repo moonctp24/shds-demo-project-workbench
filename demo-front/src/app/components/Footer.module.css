@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  margin-top: auto;
+}
+
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.dot {
+  color: #bbb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    border-top-color: #262626;
+  }
+}
