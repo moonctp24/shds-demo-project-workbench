@@ -12,7 +12,13 @@
   align-items: flex-start;
   gap: 1.25rem;
   width: 100%;
-  max-width: 480px;
+  max-width: 720px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .button {
@@ -30,8 +36,20 @@
   cursor: not-allowed;
 }
 
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
 .result {
   width: 100%;
+}
+
+.sectionTitle {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .table {
