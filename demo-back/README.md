@@ -29,3 +29,15 @@ java -jar target/demo-back-0.0.1-SNAPSHOT.jar
   "phone": "01011112222"
 }
 ```
+
+## Render 배포
+
+이 저장소는 `demo-front`와 `demo-back`이 한 저장소에 같이 있는 모노레포이므로, Render 서비스 설정에서 아래처럼 지정해야 한다.
+
+- **Root Directory**: `demo-back` (이 디렉터리를 기준으로 `Dockerfile`을 찾음)
+- **Environment**: Docker
+- **Dockerfile Path**: `Dockerfile` (Root Directory가 `demo-back`이면 자동으로 `demo-back/Dockerfile`을 가리킴)
+
+Render는 컨테이너가 리스닝할 포트를 `PORT` 환경변수로 주입한다. `application.yml`의 `server.port`가 `${PORT:8091}`로 설정되어 있어, Render에서는 `PORT` 값을, 로컬에서는 기본값 8091을 사용한다.
+
+> 참고: `GetUserInfoController`의 `@CrossOrigin(origins = "http://localhost:3001")`은 로컬 프론트 주소만 허용한다. `demo-front`도 배포하면, 그 배포 주소를 허용 origin에 추가해야 프론트에서 API 호출이 정상 동작한다.
