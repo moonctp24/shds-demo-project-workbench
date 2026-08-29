@@ -40,4 +40,4 @@ java -jar target/demo-back-0.0.1-SNAPSHOT.jar
 
 Render는 컨테이너가 리스닝할 포트를 `PORT` 환경변수로 주입한다. `application.yml`의 `server.port`가 `${PORT:8091}`로 설정되어 있어, Render에서는 `PORT` 값을, 로컬에서는 기본값 8091을 사용한다.
 
-> 참고: `GetUserInfoController`의 `@CrossOrigin(origins = "http://localhost:3001")`은 로컬 프론트 주소만 허용한다. `demo-front`도 배포하면, 그 배포 주소를 허용 origin에 추가해야 프론트에서 API 호출이 정상 동작한다.
+CORS 허용 origin도 `CORS_ALLOWED_ORIGIN` 환경변수로 오버라이드된다 (`application.yml`의 `app.cors.allowed-origin`, 기본값 `http://localhost:3001`). Render 서비스에는 일단 `CORS_ALLOWED_ORIGIN=0.0.0.0`으로 등록해두었고, `demo-front` 배포 주소가 정해지면 실제 배포 도메인(`https://...`)으로 바꿔야 한다. `0.0.0.0`은 유효한 브라우저 Origin이 아니라서 그 상태로는 브라우저에서의 CORS 요청이 전부 막힌다는 점을 유의한다.

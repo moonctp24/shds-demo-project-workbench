@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: demo-back
+
+app:
+  cors:
+    allowed-origin: ${CORS_ALLOWED_ORIGIN:http://localhost:3001}

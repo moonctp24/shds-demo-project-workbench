@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "${app.cors.allowed-origin}")
 public class GetUserInfoController {
 
     @GetMapping("/api/user-info")
