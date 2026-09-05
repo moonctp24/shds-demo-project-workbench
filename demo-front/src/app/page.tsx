@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button, Table } from "@/components/ui";
 import styles from "./page.module.css";
 
 type UserInfo = {
@@ -51,40 +52,22 @@ export default function Home() {
       <main className={styles.main}>
         <h1>사용자 정보 조회</h1>
 
-        <button
-          className={styles.button}
-          onClick={handleFetchUserInfo}
-          disabled={loading}
-        >
+        <Button onClick={handleFetchUserInfo} disabled={loading}>
           {loading ? "조회 중..." : "사용자 정보 조회"}
-        </button>
+        </Button>
 
         <div className={styles.result}>
-          {error && <p className={styles.error}>{error}</p>}
+          {error && <p className="text-error">{error}</p>}
 
           {userInfo && (
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>이름</th>
-                  <th>나이</th>
-                  <th>전화번호</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{userInfo.name}</td>
-                  <td>{userInfo.age}</td>
-                  <td>{formatPhoneNumber(userInfo.phone)}</td>
-                </tr>
-              </tbody>
-            </table>
+            <Table
+              headers={["이름", "나이", "전화번호"]}
+              rows={[[userInfo.name, userInfo.age, formatPhoneNumber(userInfo.phone)]]}
+            />
           )}
 
           {!userInfo && !error && !loading && (
-            <p className={styles.placeholder}>
-              버튼을 클릭하면 사용자 정보가 표시됩니다.
-            </p>
+            <p className="text-caption">버튼을 클릭하면 사용자 정보가 표시됩니다.</p>
           )}
         </div>
       </main>
