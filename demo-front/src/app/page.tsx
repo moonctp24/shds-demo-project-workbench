@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button, Table } from "@/components/ui";
+import UnicornBackground from "./components/UnicornBackground";
 import styles from "./page.module.css";
 
 type UserInfo = {
@@ -49,6 +50,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <UnicornBackground />
       <main className={styles.main}>
         <h1>사용자 정보 조회</h1>
 
